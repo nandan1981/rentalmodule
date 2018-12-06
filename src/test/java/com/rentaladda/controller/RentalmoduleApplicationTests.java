@@ -1,4 +1,4 @@
-package com.rentaladda.rentalmodule;
+package com.rentaladda.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
