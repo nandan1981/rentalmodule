@@ -15,6 +15,15 @@ public class RentalController {
         return "rentalPage";
     }
 
+    @RequestMapping(value="/LoginPopup")
+    public String LoginPopup(Model model){
+        model.addAttribute("isEnabledSignUp",true);
+        model.addAttribute("isEnabledLogin",true);
+        model.addAttribute("isLoggedIn",false);
+        //Was testing AOP here
+        return "LoginPopup";
+    }
+
     @RequestMapping(value = "/fetchRentalData/{searchKeyword}")
     public String fetchRentalData(Model model){
         model.addAttribute("isLoggedIn",true);
