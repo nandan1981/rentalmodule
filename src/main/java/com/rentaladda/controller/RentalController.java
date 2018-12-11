@@ -14,4 +14,33 @@ public class RentalController {
         model.addAttribute("isLoggedIn",false);
         return "rentalPage";
     }
+
+    @RequestMapping(value = "/fetchRentalData/{searchKeyword}")
+    public String fetchRentalData(Model model){
+        model.addAttribute("isLoggedIn",true);
+        return "rentalPage";
+    }
+
+    @RequestMapping(value = "/insertRentalData/{Gadget}")
+    public String insertRentalData(Model model){
+
+        model.addAttribute("isLoggedIn",true);
+        return "rentalPage";
+    }
+
+    @RequestMapping(value = "/updateRentalData")
+    public String updateRentalData(Model model){
+
+        model.addAttribute("isLoggedIn",true);
+        return "rentalPage";
+    }
+
+    @RequestMapping(value = "/deleteRentalData")
+    public String deleteRentalData(Model model){
+
+        model.addAttribute("isLoggedIn",true);
+        return "rentalPage";
+    }
+
+
 }
