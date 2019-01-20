@@ -1,10 +1,12 @@
 package com.rentaladda.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.rentaladda.model.Customer;
 import com.rentaladda.model.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,15 +34,15 @@ public class RentalController {
     }
 
     @RequestMapping(value = "/fetchRentalData/{searchKeyword}" , produces = "application/json")
-    public String fetchRentalData(Model model){
+    public Customer fetchRentalData(Model model, @PathVariable(value="searchKeyword") String searchKeyword){
         //model.addAttribute("isLoggedIn",true);
-        StringBuffer returnData = new StringBuffer();
-        for(Customer customer: repository.findAll()){
-            returnData.append(customer.firstName);
-            returnData.append(customer.lastName);
-        }
-   System.out.println(repository.findAll());
-        return returnData.toString() ;
+//        StringBuffer returnData = new StringBuffer();
+//        for(Customer customer: repository.findAll()){
+//            returnData.append(customer.firstName);
+//            returnData.append(customer.lastName);
+//        }
+   System.out.println(repository.findByFirstName(searchKeyword));
+        return repository.findByFirstName(searchKeyword) ;
     }
 
     @RequestMapping(value = "/insertRentalData/{Gadget}")
